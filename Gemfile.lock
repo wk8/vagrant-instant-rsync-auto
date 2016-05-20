@@ -24,7 +24,7 @@ GIT
 PATH
   remote: .
   specs:
-    vagrant-instant-rsync-auto (0.1.0)
+    vagrant-instant-rsync-auto (0.1.1)
 
 GEM
   remote: https://rubygems.org/

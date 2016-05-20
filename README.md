@@ -22,3 +22,11 @@ _in lieu_ of your usual `vagrant rsync-auto`, and you should be good to go!
 
 Hopefully this will make it into Vagrant proper, there's a pull request opened
 for that: https://github.com/mitchellh/vagrant/pull/7332
+
+## Troubleshooting
+
+This plugin requires rsync >= 3.1.0 on both the host and the guest; you can see
+your rsync version with
+```bash
+rsync --version
+```
