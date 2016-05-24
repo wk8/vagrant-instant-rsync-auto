@@ -31,3 +31,5 @@ your rsync version with
 ```bash
 rsync --version
 ```
+
+(On Mac OS X, rsync can be upgraded with `brew install homebrew/dupes/rsync`)
