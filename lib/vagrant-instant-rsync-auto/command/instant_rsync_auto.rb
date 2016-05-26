@@ -184,10 +184,16 @@ module VagrantPlugins
                 next
               end
 
-              ssh_info = opts[:machine].ssh_info
               begin
+                rsync_helper = rsync_helper(opts[:machine], opts[:id], opts[:opts])
+
+                unless rsync_helper
+                  # couldn't find SSH info for that machine
+                  raise Vagrant::Errors::MachineGuestNotReady
+                end
+
                 start = Time.now
-                rsync_helper(opts[:machine], opts[:id], opts[:opts]).rsync_single
+                rsync_helper.rsync_single
                 finish = Time.now
                 time_spent_msg = "Time spent in rsync: #{finish-start} (in seconds)"
                 @logger.info(time_spent_msg)

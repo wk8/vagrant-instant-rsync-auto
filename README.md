@@ -1,7 +1,9 @@
 # vagrant-instant-rsync-auto
 
 An rsync watcher for Vagrant 1.5.1+ that's much faster than the native
-`vagrant rsync-auto` command.
+`vagrant rsync-auto` command; especially if you have a decent amount of
+logic in your Vagrantfile and/or plugins that makes the parsing and loading
+of it a bit slow.
 
 ## Installation
 

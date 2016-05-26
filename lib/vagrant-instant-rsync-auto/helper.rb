@@ -212,7 +212,10 @@ module VagrantPlugins
           args << '--no-group' unless args.include?('--group') || args.include?('-g')
         else
           # requires rsync >= 3.1.0
-          args << "--chown=#{@opts[:owner]}:#{@opts[:group]}"
+          # we don't use --chown because of a bug with zsh's globbing
+          # (if using zsh on the guest)
+          args << "--usermap='*:#{@opts[:owner]}'"
+          args << "--groupmap='*:#{@opts[:group]}'"
         end
 
         # Tell local rsync how to invoke remote rsync with sudo
